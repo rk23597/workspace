@@ -11,10 +11,14 @@ const config = {
         },
       "organization":{
           "earthport-test":{
-              "refresh_token_url": org.env
+              "refresh_token_url": "env"
           }
       }  
+    },
+    set payload (data){
+        config.apigee.organization['earthport-test'].refresh_token_url=data;
     }
 };
+config.payload(org.env)
 console.log(config.apigee.organization['earthport-test'].refresh_token_url)
    module.exports = config;
